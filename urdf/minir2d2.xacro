@@ -1,12 +1,20 @@
 <?xml version="1.0"?>
-<robot name="r2d2" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="minir2d2" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:property name="width" value=".2" />
+  <!--<xacro:property name="width" value=".2" />
   <xacro:property name="leglen" value=".6" />
   <xacro:property name="polelen" value=".2" />
   <xacro:property name="bodylen" value=".6" />
   <xacro:property name="baselen" value=".4" />
   <xacro:property name="wheeldiam" value=".07" />
+  <xacro:property name="pi" value="3.1415" />-->
+
+  <xacro:property name="width" value=".02" />
+  <xacro:property name="leglen" value=".06" />
+  <xacro:property name="polelen" value=".02" />
+  <xacro:property name="bodylen" value=".06" />
+  <xacro:property name="baselen" value=".04" />
+  <xacro:property name="wheeldiam" value=".007" />
   <xacro:property name="pi" value="3.1415" />
 
   <material name="blue">
@@ -49,7 +57,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
         <geometry>
-          <cylinder radius="${wheeldiam/2}" length="0.1"/>
+          <cylinder radius="${wheeldiam/2}" length="0.01"/>
         </geometry>
         <material name="black"/>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -57,14 +65,14 @@
       <collision>
         <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
         <geometry>
-          <cylinder radius="${wheeldiam/2}" length="0.1"/>
+          <cylinder radius="${wheeldiam/2}" length="0.01"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0" />
       </collision>
       <xacro:default_inertial mass="1"/>
     </link>
     <joint name="${prefix}_${suffix}_wheel_joint" type="continuous">
-      <axis xyz="0 1 0" rpy="0 0 0" />
+      <axis xyz="0 .1 0" rpy="0 0 0" />
       <parent link="${prefix}_base"/>
       <child link="${prefix}_${suffix}_wheel"/>
       <origin xyz="${baselen*reflect/3} 0 -${wheeldiam/2+.05}" rpy="0 0 0"/>
@@ -98,14 +106,14 @@
     <link name="${prefix}_leg">
       <visual>
         <geometry>
-          <box size="${leglen} .1 .2"/>
+          <box size="${leglen} .01 .02"/>
         </geometry>
         <origin xyz="0 0 -${leglen/2}" rpy="0 ${pi/2} 0"/>
         <material name="white"/>
       </visual>
       <collision>
         <geometry>
-          <box size="${leglen} .1 .2"/>
+          <box size="${leglen} .01 .02"/>
         </geometry>
         <origin xyz="0 0 -${leglen/2}" rpy="0 ${pi/2} 0"/>
       </collision>
@@ -115,19 +123,19 @@
     <joint name="base_to_${prefix}_leg" type="fixed">
       <parent link="base_link"/>
       <child link="${prefix}_leg"/>
-      <origin xyz="0 ${reflect*(width+.02)} .25" />
+      <origin xyz="0 ${reflect*(width+.002)} .025" />
     </joint>
 
     <link name="${prefix}_base">
       <visual>
         <geometry>
-          <box size="${baselen} .1 .1"/>
+          <box size="${baselen} .01 .01"/>
         </geometry>
         <material name="white"/>
       </visual>
       <collision>
         <geometry>
-          <box size="${baselen} .1 .1"/>
+          <box size="${baselen} .01 .01"/>
         </geometry>
       </collision>
       <xacro:default_inertial mass="10"/>
@@ -144,7 +152,7 @@
   <xacro:leg prefix="right" reflect="-1" />
   <xacro:leg prefix="left" reflect="1" />
 
-  <joint name="gripper_extension" type="prismatic">
+  <!--<joint name="gripper_extension" type="prismatic">
     <parent link="base_link"/>
     <child link="gripper_pole"/>
     <limit effort="1000.0" lower="-${width*2-.02}" upper="0" velocity="0.5"/>
@@ -156,13 +164,13 @@
   <link name="gripper_pole">
     <visual>
       <geometry>
-        <cylinder length="${polelen}" radius=".01"/>
+        <cylinder length="${polelen}" radius=".001"/>
       </geometry>
       <origin xyz="${polelen/2} 0 0" rpy="0 ${pi/2} 0 "/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="${polelen}" radius=".01"/>
+        <cylinder length="${polelen}" radius=".001"/>
       </geometry>
       <origin xyz="${polelen/2} 0 0" rpy="0 ${pi/2} 0 "/>
     </collision>
@@ -220,7 +228,7 @@
     </joint>
     <link name="${prefix}_tip">
       <visual>
-        <origin rpy="${(reflect-1)/2*pi} 0 0" xyz="0.09137 0.00495 0"/>
+        <origin rpy="${(reflect-1)/2*pi} 0 0" xyz="0.009137 0.000495 0"/>
         <geometry>
           <mesh filename="package://pr2_description/meshes/gripper_v0/l_finger_tip.dae"/>
         </geometry>
@@ -229,14 +237,14 @@
         <geometry>
           <mesh filename="package://pr2_description/meshes/gripper_v0/l_finger_tip.dae"/>
         </geometry>
-        <origin rpy="${(reflect-1)/2*pi} 0 0" xyz="0.09137 0.00495 0"/>
+        <origin rpy="${(reflect-1)/2*pi} 0 0" xyz="0.009137 0.000495 0"/>
       </collision>
       <xacro:default_inertial mass=".05"/>
     </link>
   </xacro:macro>
 
   <xacro:gripper prefix="left" reflect="1" />
-  <xacro:gripper prefix="right" reflect="-1" />
+  <xacro:gripper prefix="right" reflect="-1" />-->
 
   <link name="head">
     <visual>
@@ -277,14 +285,14 @@
   <link name="box">
     <visual>
       <geometry>
-        <box size=".08 .08 .08"/>
+        <box size=".008 .008 .008"/>
       </geometry>
       <material name="blue"/>
       <origin xyz="-0.04 0 0"/>
     </visual>
     <collision>
       <geometry>
-        <box size=".08 .08 .08"/>
+        <box size=".008 .008 .008"/>
       </geometry>
     </collision>
     <xacro:default_inertial mass="1"/>
@@ -295,62 +303,6 @@
     <child link="box"/>
     <origin xyz="${.707*width+0.04} 0 ${.707*width}"/>
   </joint>
-
-  <gazebo reference="box">
-    <sensor type="multicamera" name="stereo_camera">
-      <update_rate>30.0</update_rate>
-      <camera name="left">
-        <horizontal_fov>1.3962634</horizontal_fov>
-        <image>
-          <width>800</width>
-          <height>800</height>
-          <format>R8G8B8</format>
-        </image>
-        <clip>
-          <near>0.02</near>
-          <far>300</far>
-        </clip>
-        <noise>
-          <type>gaussian</type>
-          <mean>0.0</mean>
-          <stddev>0.007</stddev>
-        </noise>
-      </camera>
-      <camera name="right">
-        <pose>0 -0.07 0 0 0 0</pose>
-        <horizontal_fov>1.3962634</horizontal_fov>
-        <image>
-          <width>800</width>
-          <height>800</height>
-          <format>R8G8B8</format>
-        </image>
-        <clip>
-          <near>0.02</near>
-          <far>300</far>
-        </clip>
-        <noise>
-          <type>gaussian</type>
-          <mean>0.0</mean>
-          <stddev>0.007</stddev>
-        </noise>
-      </camera>
-      <plugin name="stereo_camera_controller" filename="libgazebo_ros_multicamera.so">
-        <alwaysOn>true</alwaysOn>
-        <updateRate>0.0</updateRate>
-        <cameraName>multisense_sl/camera</cameraName>
-        <imageTopicName>image_raw</imageTopicName>
-        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-        <frameName>left_camera_optical_frame</frameName>
-        <rightFrameName>right_camera_optical_frame</rightFrameName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
-      </plugin>
-    </sensor>
-  </gazebo>
 
   <!-- Gazebo plugin for ROS Control -->
   <gazebo>
