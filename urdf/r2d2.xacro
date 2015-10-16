@@ -42,6 +42,9 @@
     </collision>
     <xacro:default_inertial mass="10"/>
   </link>
+  <gazebo reference="base_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
 
   <xacro:macro name="wheel" params="prefix suffix reflect">
 
@@ -111,6 +114,9 @@
       </collision>
       <xacro:default_inertial mass="10"/>
     </link>
+    <gazebo reference="${prefix}_leg">
+      <material>Gazebo/White</material>
+    </gazebo>
 
     <joint name="base_to_${prefix}_leg" type="fixed">
       <parent link="base_link"/>
@@ -132,6 +138,9 @@
       </collision>
       <xacro:default_inertial mass="10"/>
     </link>
+    <gazebo reference="${prefix}_base">
+      <material>Gazebo/White</material>
+    </gazebo>
 
     <joint name="${prefix}_base_joint" type="fixed">
       <parent link="${prefix}_leg"/>
@@ -252,6 +261,9 @@
     </collision>
     <xacro:default_inertial mass="2"/>
   </link>
+  <gazebo reference="head">
+    <material>Gazebo/White</material>
+  </gazebo>
 
   <joint name="head_swivel" type="continuous">
     <parent link="base_link"/>
@@ -289,6 +301,9 @@
     </collision>
     <xacro:default_inertial mass="1"/>
   </link>
+  <gazebo reference="box">
+    <material>Gazebo/Blue</material>
+  </gazebo>
 
   <joint name="tobox" type="fixed">
     <parent link="head"/>

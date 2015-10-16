@@ -30,9 +30,6 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
-  <gazebo reference="base_link">
-    <material>Gazebo/Blue</material>
-  </gazebo>
   <link name="right_leg">
     <visual>
       <geometry>
@@ -40,6 +37,9 @@
       </geometry>
       <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
       <material name="white"/>
+      <gazebo>
+        <material>Gazebo/White</material>
+      </gazebo>
     </visual>
     <collision>
       <geometry>
@@ -52,9 +52,6 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
-  <gazebo reference="right_leg">
-    <material>Gazebo/White</material>
-  </gazebo>
   <joint name="base_to_right_leg" type="fixed">
     <parent link="base_link"/>
     <child link="right_leg"/>
@@ -77,9 +74,6 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
-  <gazebo reference="right_base">
-    <material>Gazebo/White</material>
-  </gazebo>
   <joint name="right_base_joint" type="fixed">
     <parent link="right_leg"/>
     <child link="right_base"/>
@@ -198,9 +192,6 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
-  <gazebo reference="left_leg">
-    <material>Gazebo/White</material>
-  </gazebo>
   <joint name="base_to_left_leg" type="fixed">
     <parent link="base_link"/>
     <child link="left_leg"/>
@@ -223,9 +214,6 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
-  <gazebo reference="left_base">
-    <material>Gazebo/White</material>
-  </gazebo>
   <joint name="left_base_joint" type="fixed">
     <parent link="left_leg"/>
     <child link="left_base"/>
@@ -493,9 +481,6 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
-  <gazebo reference="head">
-    <material>Gazebo/White</material>
-  </gazebo>
   <joint name="head_swivel" type="continuous">
     <parent link="base_link"/>
     <child link="head"/>
@@ -533,16 +518,13 @@
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
-  <gazebo reference="box">
-    <material>Gazebo/Blue</material>
-  </gazebo>
   <joint name="tobox" type="fixed">
     <parent link="head"/>
     <child link="box"/>
     <origin xyz="0.1814 0 0.1414"/>
   </joint>
-  <gazebo reference="box">
-    <sensor name="stereo_camera" type="multicamera">
+   <gazebo reference="box">
+    <sensor type="multicamera" name="stereo_camera">
       <update_rate>30.0</update_rate>
       <camera name="left">
         <horizontal_fov>1.3962634</horizontal_fov>
@@ -579,7 +561,7 @@
           <stddev>0.007</stddev>
         </noise>
       </camera>
-      <plugin filename="libgazebo_ros_multicamera.so" name="stereo_camera_controller">
+      <plugin name="stereo_camera_controller" filename="libgazebo_ros_multicamera.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>0.0</updateRate>
         <cameraName>multisense_sl/camera</cameraName>
