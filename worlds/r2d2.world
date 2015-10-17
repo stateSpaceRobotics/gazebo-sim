@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
 <sdf version="1.4">
-  <!-- We use a custom world for the rrbot so that the camera angle is launched correctly -->
 
   <world name="default">
     <include>
@@ -13,16 +12,178 @@
     </include>
 
     <!-- RMC field -->
-    <include>
+    <!--<include>
       <uri> model://RMCField</uri>
-    </include>
+    </include>-->
+
+    <model name='RMCField'>
+      <link name='Wall_5'>
+        <collision name='Wall_5_Collision'>
+          <geometry>
+            <box>
+              <size>7.38 0.2 0.6</size>
+            </box>
+          </geometry>
+          <pose>0 0 0.3 0 -0 0</pose>
+        </collision>
+        <visual name='Wall_5_Visual'>
+          <pose>0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>7.38 0.2 0.6</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <pose>-1.89 3.69 0 0 0 1.57079632679</pose>
+      </link>
+      <link name='Wall_6'>
+        <collision name='Wall_6_Collision'>
+          <geometry>
+            <box>
+              <size>3.78 0.2 0.6</size>
+            </box>
+          </geometry>
+          <pose>0 0 0.3 0 -0 0</pose>
+        </collision>
+        <visual name='Wall_6_Visual'>
+          <pose>0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>3.78 0.2 0.6</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+	<pose>0 0 0 0 0 0</pose>
+      </link>
+      <link name='Wall_7'>
+        <collision name='Wall_7_Collision'>
+          <geometry>
+            <box>
+              <size>7.38 0.2 0.6</size>
+            </box>
+          </geometry>
+          <pose>0 0 0.3 0 -0 0</pose>
+        </collision>
+        <visual name='Wall_7_Visual'>
+          <pose>0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>7.38 0.2 0.6</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+	<pose>1.89 3.69 0 0 0 1.57079632679</pose>
+      </link>
+      <link name='Wall_8'>
+        <collision name='Wall_8_Collision'>
+          <geometry>
+            <box>
+              <size>3.78001 0.2 0.6</size>
+            </box>
+          </geometry>
+          <pose>0 0 0.3 0 -0 0</pose>
+        </collision>
+        <visual name='Wall_8_Visual'>
+          <pose>0 0 0.3 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>3.78001 0.2 0.6</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <pose>0 7.38 0 0 0 0</pose>
+      </link>
+      <static>1</static>
+      <pose>0 0 0 0 0 0</pose>
+    </model>
+
+<model name='leftBeacoPost'>
+      <pose>0.739775 0 0.8 0 -0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>0.5</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>0.5</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      <static>1</static>
+    </model>
+<model name='rightBeacoPost'>
+      <pose>-0.739775 0 0.8 0 -0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>0.5</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>0.5</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      <static>1</static>
+    </model>
 
 
 
-    <!-- Focus camera on tall pendulum -->
-    <gui fullscreen='0'>
-      <camera name='user_camera'>
-        <pose>4.927360 -4.376610 3.740080 0.000000 0.275643 2.356190</pose>
+    <!-- Focus camera on the field-->
+<gui>
+      <camera name='user_camera'>  
+	<pose>0 -2.7 4.5 0 0.67 1.57079632679</pose>
         <view_controller>orbit</view_controller>
       </camera>
     </gui>
