@@ -26,11 +26,15 @@
           r2d2_diff_drive_controller
           r2d2_head_controller
           r2d2_gripper_controller
-          --shutdown-timeout 3"/>
+          --shutdown-timeout 3">
+  </node>
 
   <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-
     <param name="default_topic" value="/r2d2_diff_drive_controller/cmd_vel"/>
   </node>
+  <node name = "navigator" pkg="aries" type="navigator.py">
+    <remap from="cmd_vel" to="r2d2_diff_drive_controller/cmd_vel"/>
+  </node>
+  <node name = "beacon_localization" pkg = "aries" type = "beacon_localization.py" />
 
 </launch>

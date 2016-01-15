@@ -118,13 +118,13 @@
         <pose>0 7.38 0 0 0 0</pose>
       </link>
       <static>1</static>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>1.89 0 0 0 0 0</pose>
     </model>
 
 <model name='leftBeacoPost'>
       <!--<pose>0.739775 0 0.8 0 -0 0</pose>-->
       <!--<pose>0.3048 0 0.8 0 0 0</pose>-->
-      <pose>0.3048 0 0.8 0 -0 0</pose>
+      <pose>2.1948 0 0.8 0 -0 0</pose>
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -153,8 +153,8 @@
     </model>
 <model name='rightBeacoPost'>
       <!--<pose>-0.739775 0 0.8 0 -0 0</pose>-->
-      <!--<pose>0.9144 0 0.8 0 0 0</pose>-->
-      <pose>-0.3048 0 0.8 0 -0 0</pose>
+      <!--<pose>-0.3048 0 0.8 0 0 0</pose>-->
+      <pose>1.5852 0 0.8 0 -0 0</pose>
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -187,7 +187,8 @@
     <!-- Focus camera on the field-->
 <gui>
       <camera name='user_camera'>  
-	<pose>0 -2.7 4.5 0 0.67 1.57079632679</pose>
+        <!--<pose>0 -2.7 4.5 0 0.67 1.57079632679</pose>-->
+        <pose>1.89 -2.7 4.5 0 0.67 1.57079632679</pose>
         <view_controller>orbit</view_controller>
       </camera>
     </gui>
