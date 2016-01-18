@@ -11,6 +11,7 @@ define block model
 window
 ( 
   size [ 400.000 800.000 ] 
+  center [1.89 3.69]
   scale 100.0 
 )
 
@@ -63,8 +64,9 @@ define sick ranger
 define minibot position
 (
   localisation "odom"
+  localization_origin [0 0 0 0]
   odom_error [0 0 0 0 0 0]
-  size [0.35 0.35 0.45]
+  size [0.2 0.2 0.45]
   origin [0 0 0 0]
   gui_nose 1
   drive "diff"
@@ -73,6 +75,9 @@ define minibot position
   bitmap "robot.png"
 )
 
-minibot( pose [1 1 0 270] color "red")
+minibot( pose [1 1 0 0] color "red")
+minibot( pose [1 1.3 0 0] color "green")
+minibot( pose [1.3 1 0 0] color "blue")
+minibot( pose [1.3 1.3 0 0] color "yellow")
 block( pose [1.5852 0 0 0] color "green")
 block( pose [2.1948 0 0 0] color "blue")

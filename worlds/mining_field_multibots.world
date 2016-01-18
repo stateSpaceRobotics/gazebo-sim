@@ -74,5 +74,8 @@ define minibot position
 )
 
 minibot( pose [1 1 0 270] color "red")
+minibot( pose [2 1 0 270] color "green")
+minibot( pose [1 2 0 270] color "blue")
+minibot( pose [2 2 0 270] color "yellow")
 block( pose [1.5852 0 0 0] color "green")
 block( pose [2.1948 0 0 0] color "blue")
