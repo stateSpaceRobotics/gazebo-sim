@@ -61,9 +61,10 @@ define sick ranger
   #ctrl "lasernoise"
 )
 
+
 define minibot position
 (
-  localisation "odom"
+  #localization "odom"
   localization_origin [0 0 0 0]
   odom_error [0 0 0 0 0 0]
   size [0.28 0.28 0.45]
@@ -77,9 +78,9 @@ define minibot position
 
 minibot( pose [1 1 0 90] color "red")
 minibot( pose [1 1.35 0 90] color "green")
-minibot( pose [1 1.7 0 90] color "blue")
-minibot( pose [1 2.1 0 90] color "orange")
-minibot( pose [1 2.5 0 90] color "purple")
-minibot( pose [1.6 2.6 0 90] color "yellow")
+minibot( pose [1.35 1 0 90] color "blue")
+minibot( pose [1.35 1.35 0 90] color "orange")
+minibot( pose [1.35 1.7 0 90] color "purple")
+minibot( pose [1 1.7 0 90] color "yellow")
 block( pose [1.5852 0 0 0] color "green")
 block( pose [2.1948 0 0 0] color "blue")
