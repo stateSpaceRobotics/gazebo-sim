@@ -1,0 +1,312 @@
+<robot name="traditional_2016">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.206554768494517 -0.0795431900918811 0.0631222383253213"
+        rpy="0 0 0" />
+      <mass
+        value="4.21456466669016" />
+      <inertia
+        ixx="0.477265366590433"
+        ixy="5.85653949780393E-07"
+        ixz="0.0102918225723485"
+        iyy="0.763593218192883"
+        iyz="-3.27479812945717E-07"
+        izz="0.364257676715045" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gazebo_sim/meshes/Wheels.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gazebo_sim/meshes/Wheels.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Chassis">
+    <inertial>
+      <origin
+        xyz="0.00537203309859674 0.0324234507011438 0.0264308659835239"
+        rpy="0 0 0" />
+      <mass
+        value="5.77445129953138" />
+      <inertia
+        ixx="0.365239843707374"
+        ixy="-0.0788206642300129"
+        ixz="-7.33214184688591E-05"
+        iyy="0.534123072874955"
+        iyz="-0.000142675188855589"
+        izz="0.347697997490539" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gazebo_sim/meshes/Chassis.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gazebo_sim/meshes/Chassis.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Chassis Joint"
+    type="fixed">
+    <origin
+      xyz="0.0010512 -0.028441 0.02543"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Chassis" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Sideplate Frame">
+    <inertial>
+      <origin
+        xyz="0.534654881934719 0.0554942463427044 0.0222254189562616"
+        rpy="0 0 0" />
+      <mass
+        value="4.69519028792857" />
+      <inertia
+        ixx="0.152487065123148"
+        ixy="0.000712809927621225"
+        ixz="3.82126318742745E-05"
+        iyy="0.689273285117902"
+        iyz="-8.85452571210599E-07"
+        izz="0.563699922198218" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gazebo_sim/meshes/Sideplate Frame.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gazebo_sim/meshes/Sideplate Frame.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Sideplate Frame Joint"
+    type="revolute">
+    <origin
+      xyz="-0.21821 0.39829 0"
+      rpy="0 0 0.44824" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Sideplate Frame" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-.25"
+      upper="1"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Front Piece">
+    <inertial>
+      <origin
+        xyz="0.0211201213624709 -0.0622114951604884 0.0405972047787488"
+        rpy="0 0 0" />
+      <mass
+        value="0.239915601207774" />
+      <inertia
+        ixx="0.000803970641621702"
+        ixy="1.55552742603821E-17"
+        ixz="3.42480201724112E-18"
+        iyy="0.00613090605048072"
+        iyz="-1.03391895166171E-05"
+        izz="0.00595803680721281" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gazebo_sim/meshes/Front Piece.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gazebo_sim/meshes/Front Piece.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Front Piece Joint"
+    type="revolute">
+    <origin
+      xyz="1.1653 0.044207 0"
+      rpy="0.78967 -1.5708 0" />
+    <parent
+      link="Sideplate Frame" />
+    <child
+      link="Front Piece" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-2.935619449019"
+      upper="-1.57079632679"
+      effort="0"
+      velocity="0" />
+  </joint>
+
+  <link name="front_kinect">
+  </link>
+
+  <gazebo reference="front_kinect">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <joint name="tokinect" type="fixed">
+    <parent link="Chassis"/>
+    <child link="front_kinect"/>
+    <origin rpy="0 3.1415926535897931 3.1415926535897931" xyz="0.52 0.35 -0.25"/>  <!--change the middle number of the rpy on this line to adjust kinect pitch -->
+  </joint>
+
+  <joint name="camera_rgb_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="front_kinect"/>
+    <child link="camera_rgb_frame" />
+  </joint>
+  <link name="camera_rgb_frame"/>
+  <joint name="camera_rgb_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.57079632679 0 -1.57079632679" />
+    <parent link="camera_rgb_frame" />
+    <child link="camera_rgb_optical_frame" />
+  </joint>
+  <link name="camera_rgb_optical_frame"/>
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="-0.031 0.0125 -0.016" rpy="0 0 0"/>
+    <parent link="camera_rgb_frame"/>
+    <child link="camera_link"/>
+  </joint>  
+  <link name="camera_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 1.57079632679"/>
+      <geometry>
+        <mesh filename="package://turtlebot_description/meshes/sensors/kinect.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.07271 0.27794 0.073"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.564" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+               iyy="0.000498940" iyz="0.0"
+               izz="0.003879257" />
+    </inertial>
+  </link>
+  <joint name="camera_depth_joint" type="fixed">
+    <origin xyz="0 0.025 0" rpy="0 0 0" />
+    <parent link="camera_rgb_frame" />
+    <child link="camera_depth_frame" />
+  </joint>
+  <link name="camera_depth_frame"/>
+  <joint name="camera_depth_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.57079632679 0 -1.57079632679" />
+    <parent link="camera_depth_frame" />
+    <child link="camera_depth_optical_frame" />
+  </joint>
+  <link name="camera_depth_optical_frame"/>
+  <gazebo reference="camera_link">  
+    <sensor type="depth" name="camera">
+      <always_on>true</always_on>
+      <update_rate>20.0</update_rate>
+      <camera>
+        <horizontal_fov>1.0471975512</horizontal_fov>
+        <image>
+          <format>R8G8B8</format>
+          <width>640</width>
+          <height>480</height>
+        </image>
+        <clip>
+          <near>0.05</near>
+          <far>8.0</far>
+        </clip>
+      </camera>
+      <plugin name="kinect_camera_controller" filename="libgazebo_ros_openni_kinect.so">
+        <cameraName>camera</cameraName>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10</updateRate>
+        <imageTopicName>rgb/image_raw</imageTopicName>
+        <depthImageTopicName>depth/image_raw</depthImageTopicName>
+        <pointCloudTopicName>depth/points</pointCloudTopicName>
+        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+        <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+        <frameName>camera_depth_optical_frame</frameName>
+        <baseline>0.1</baseline>
+        <distortion_k1>0.0</distortion_k1>
+        <distortion_k2>0.0</distortion_k2>
+        <distortion_k3>0.0</distortion_k3>
+        <distortion_t1>0.0</distortion_t1>
+        <distortion_t2>0.0</distortion_t2>
+        <pointCloudCutoff>0.4</pointCloudCutoff>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+</robot>
