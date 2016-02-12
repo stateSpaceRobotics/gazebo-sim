@@ -544,7 +544,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 1.57079632679"/>
       <geometry>
-        <mesh filename="package://turtlebot_description/meshes/sensors/kinect.dae"/>
+        <mesh filename="package://gazebo_sim/meshes/kinect.dae"/>
       </geometry>
     </visual>
     <collision>
